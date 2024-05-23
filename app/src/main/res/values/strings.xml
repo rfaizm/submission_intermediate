@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MySubmissionIntermediate</string>
+    <string name="email">Email</string>
+    <string name="message_login_page">Masukkan data anda</string>
+    <string name="title_login_page">Sudah siap dengan cerita anda?</string>
+    <string name="password">Password</string>
+    <string name="login">Masuk</string>
+    <string name="logout">Keluar</string>
+    <string name="register">Daftar</string>
+    <string name="message_welcome_page">Anda akan mendapatkan banyak cerita seru, memotivasi, dan anda dapat membagikan cerita anda disni! </string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="name">Nama</string>
+    <string name="nameUser">Nama penulis</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id leo in vitae turpis massa sed elementum. Tempor id eu nisl nunc mi ipsum faucibus. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Ut sem nulla pharetra diam sit amet nisl. Nulla at volutpat diam ut venenatis tellus in metus. Tempor id eu nisl nunc mi ipsum faucibus vitae. </string>
+    <string name="timeCreatedContent">Kamis, 20 Juni 2024</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="location">Location</string>
+    <string name="retry">Coba lagi</string>
+</resources>
