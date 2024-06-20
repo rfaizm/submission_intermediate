@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
-            } else{
+            } else if (user.isLogin){
                 val layoutManager = LinearLayoutManager(this)
                 binding.rvStory.layoutManager = layoutManager
                 val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
@@ -53,16 +53,11 @@ class MainActivity : AppCompatActivity() {
 
                 getQuotes()
 
-
-
                 binding.fabAdd.setOnClickListener {
                     startActivity(Intent(this, UploadImageActivity::class.java))
                 }
             }
         }
-
-
-
 
     }
 

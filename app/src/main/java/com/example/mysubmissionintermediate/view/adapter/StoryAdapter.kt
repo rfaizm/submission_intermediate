@@ -7,13 +7,13 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mysubmissionintermediate.data.api.ListStoryItem
+import com.example.mysubmissionintermediate.data.local.entity.StoryLocal
 import com.example.mysubmissionintermediate.databinding.ItemRowStoryBinding
 import com.example.mysubmissionintermediate.view.detail.DetailStoryActivity
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class StoryAdapter : PagingDataAdapter<ListStoryItem, StoryAdapter.ListViewHolder>(DIFF_CALLBACK)  {
+class StoryAdapter : PagingDataAdapter<StoryLocal, StoryAdapter.ListViewHolder>(DIFF_CALLBACK)  {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -29,12 +29,13 @@ class StoryAdapter : PagingDataAdapter<ListStoryItem, StoryAdapter.ListViewHolde
             val context = holder.itemView.context
             val intent = Intent(context, DetailStoryActivity::class.java)
             intent.putExtra(DetailStoryActivity.STORY_ID, user?.id)
+            intent.putExtra(DetailStoryActivity.DATA_DETAIL, user)
             context.startActivity(intent)
         }
     }
 
     class ListViewHolder(var binding: ItemRowStoryBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: ListStoryItem) {
+        fun bind(user: StoryLocal) {
             binding.authorStory.text = user.name
             binding.dateStory.text = user.createdAt?.let { formatDate(it) }
             Glide.with(binding.imageStory)
@@ -52,12 +53,13 @@ class StoryAdapter : PagingDataAdapter<ListStoryItem, StoryAdapter.ListViewHolde
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListStoryItem>() {
-            override fun areItemsTheSame(oldItem: ListStoryItem, newItem: ListStoryItem): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryLocal>() {
+            override fun areItemsTheSame(oldItem: StoryLocal, newItem: StoryLocal): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: ListStoryItem, newItem: ListStoryItem): Boolean {
+            override fun areContentsTheSame(oldItem: StoryLocal, newItem: StoryLocal
+            ): Boolean {
                 return oldItem.id == newItem.id
             }
         }

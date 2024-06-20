@@ -8,12 +8,13 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.mysubmissionintermediate.data.UserRepository
 import com.example.mysubmissionintermediate.data.api.ListStoryItem
+import com.example.mysubmissionintermediate.data.local.entity.StoryLocal
 import com.example.mysubmissionintermediate.data.pref.UserModel
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: UserRepository) : ViewModel() {
-    val quote: LiveData<PagingData<ListStoryItem>> =
-        repository.getQuote().cachedIn(viewModelScope)
+    val quote: LiveData<PagingData<StoryLocal>> =
+        repository.getQuote()!!.cachedIn(viewModelScope)
 
     fun getSession(): LiveData<UserModel> {
         return repository.getSession().asLiveData()
